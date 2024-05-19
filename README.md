@@ -9,7 +9,11 @@ CREATE TABLE people (
 );
 
 
-Configurar o Swagger
+# Configurar o Swagger
 Inicialize o Swagger no seu projeto.
 swag init
+
+
+# Acesso
+http://backend.archse.eng.br:32011/swagger/index.html
 

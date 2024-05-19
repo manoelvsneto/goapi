@@ -198,7 +198,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8080",
+	Host:             "http://backend.archse.eng.br:32011",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Go CRUD SQL Server Swagger API",
