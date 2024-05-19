@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service-goapi
+spec:
+  selector:
+    app: backend-goapi
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 32011
+      protocol: TCP
+  type: NodePort
