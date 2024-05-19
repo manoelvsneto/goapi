@@ -5,6 +5,20 @@ stages:
   - job: Build
     displayName: Build
     steps:
+    - task: replacetokens@3
+      inputs:
+        targetFiles: |
+          $(Build.SourcesDirectory)/deployment.yaml
+          $(Build.SourcesDirectory)/service.yaml
+          $(Build.SourcesDirectory)/ingress.yaml
+          $(Build.SourcesDirectory)/config.yaml
+        encoding: 'auto'
+        writeBOM: true
+        actionOnMissing: 'warn'
+        keepToken: false
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+    
     - task: Docker@2
       inputs:
         containerRegistry: 'DockerConnection'
