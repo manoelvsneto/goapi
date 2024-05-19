@@ -7,10 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
-	"goapi/config"
 	_ "goapi/docs" // Import the docs package
 	"goapi/handler"
 	"log"
+	"os"
 )
 
 var db *sql.DB
@@ -29,13 +29,14 @@ var err error
 // @BasePath /
 func main() {
 	// Load configuration
-	config, err := config.LoadConfig()
-	if err != nil {
-		log.Fatalf("Error loading configuration: %v", err)
+	// Load connection string from environment variable
+	connectionString := os.Getenv("DATABASE_CONNECTION_STRING")
+	if connectionString == "" {
+		log.Fatal("DATABASE_CONNECTION_STRING is not set")
 	}
 
 	// Connect to SQL Server
-	db, err = sql.Open("sqlserver", config.Database.ConnectionString)
+	db, err = sql.Open("sqlserver", connectionString)
 	if err != nil {
 		log.Fatal("Error connecting to the database: ", err)
 	}

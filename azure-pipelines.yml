@@ -11,7 +11,7 @@ stages:
           $(Build.SourcesDirectory)/deployment.yaml
           $(Build.SourcesDirectory)/service.yaml
           $(Build.SourcesDirectory)/ingress.yaml
-          $(Build.SourcesDirectory)/config.yaml
+          $(Build.SourcesDirectory)/configmap.yaml
         encoding: 'auto'
         writeBOM: true
         actionOnMissing: 'warn'
@@ -50,6 +50,7 @@ stages:
           $(Build.SourcesDirectory)/deployment.yaml
           $(Build.SourcesDirectory)/service.yaml
           $(Build.SourcesDirectory)/ingress.yaml
+          $(Build.SourcesDirectory)/configmap.yaml
         imagePullSecrets: |
           $(imagePullSecret)
         containers: 'manoelvsneto/goapi:$(Build.BuildId)'

@@ -19,3 +19,9 @@ spec:
           image:  manoelvsneto/goapi
           ports:
             - containerPort: 8080
+          env:
+            - name: DATABASE_CONNECTION_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DATABASE_CONNECTION_STRING

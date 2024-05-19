@@ -16,6 +16,12 @@ COPY . .
 # Compilar a aplicação
 RUN go build -o main .
 
+RUN rm -f configmap.yaml
+RUN rm -f deployment.yaml
+RUN rm -f service.yaml
+RUN rm -f ingress.yaml
+
+
 # Usar uma imagem base menor para rodar a aplicação
 FROM alpine:latest
 
