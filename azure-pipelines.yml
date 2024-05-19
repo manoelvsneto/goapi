@@ -3,7 +3,7 @@ pool:
   vmImage: 'ubuntu-20.04'
 
 trigger:
-  - master
+  - main
 resources:
   - repo: self
 variables:
@@ -19,9 +19,6 @@ stages:
     - task: replacetokens@3
       inputs:
         targetFiles: |
-          $(Build.SourcesDirectory)/deployment.yaml
-          $(Build.SourcesDirectory)/service.yaml
-          $(Build.SourcesDirectory)/ingress.yaml
           $(Build.SourcesDirectory)/configmap.yaml
         encoding: 'auto'
         writeBOM: true
