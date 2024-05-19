@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service-goapi
+  name: backend-servicegoapi
 spec:
   selector:
-    app: backend-goapi
+    app: backendgoapi
   ports:
     - name: http
       port: 8080

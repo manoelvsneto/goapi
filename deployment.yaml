@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment-goapi
+  name: backend-deploymentgoapi
   labels:
-    app: backend-goapi
+    app: backendgoapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-goapi
+      app: backendgoapi
   template:
     metadata:
       labels:
-        app: backend-goapi
+        app: backendgoapi
     spec:
       containers:
-        - name:  backend-goapi
+        - name:  backendgoapi
           image:  manoelvsneto/goapi
           ports:
             - containerPort: 8080
